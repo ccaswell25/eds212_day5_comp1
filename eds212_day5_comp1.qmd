@@ -4,7 +4,7 @@ author: "Carly"
 format: 
   html:
     code-fold: true
-    code-summary: "Show me the code!"
+    code-summary: "Code Here:"
 editor: visual
 execute: 
   echo: true
@@ -15,7 +15,7 @@ execute:
 
 \>\>Add "execute" in the YAML text above to suppress error messages or unnecessary code
 
-\>\>Add additional html options under format in the YAML to fold the code with clicks and also show a summary
+\>\>Add additional html options under format in the YAML to fold the code with clicks and also show a summary to make the rendered window less cluttered
 
 ```{r}
 library(tidyverse)
@@ -34,9 +34,29 @@ library(tidyverse)
 ```{r}
 head(starwars)
 dim(starwars)
+#87 rows, 14 columns is how it's read
 
-ggplot(data = starwars, aes(x = height)) + geom_histogram(fill = "green") + labs(x = "Height in cm", y = "Count")
+ggplot(data = starwars, aes(x = height)) + geom_histogram(fill = "maroon") + labs(x = "Height in cm", y = "Count")
 
+```
+
+```{r}
 ggplot(data = starwars, aes(x = height, y = mass)) + geom_point(color = "blue")
 
+```
+
+## Calculate Summary Statistics
+
+We are going to use mean() and sd() functions
+
+If you have missing or NA values in a vector, the default is for the mean/sd functions to return an "NA". We can use "na.rm" and set it to TRUE to remove the NA values.
+
+```{r}
+mean_height <- mean(starwars$height, na.rm = TRUE)
+mean_height
+```
+
+```{r}
+sd_height <- sd(starwars$height, na.rm = TRUE)
+sd_height
 ```
