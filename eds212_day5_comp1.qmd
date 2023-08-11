@@ -1,8 +1,42 @@
 ---
 title: "EDS 212 Day 5 Comp 1"
 author: "Carly"
-format: html
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show me the code!"
 editor: visual
+execute: 
+  echo: true
+  warning: false
 ---
 
-## 
+**General Notes:**
+
+\>\>Add "execute" in the YAML text above to suppress error messages or unnecessary code
+
+\>\>Add additional html options under format in the YAML to fold the code with clicks and also show a summary
+
+```{r}
+library(tidyverse)
+```
+
+## Exploring Star Wars Dataset
+
+-   Let's look at the first 6 lines (use head)
+
+-   Find the dimensions of star wars (use dim)
+
+-   Make a histogram of character heights (use ggplot and geom_histogram)
+
+-   Make a scatter plot of height vs weight (use ggplot and geom_point)
+
+```{r}
+head(starwars)
+dim(starwars)
+
+ggplot(data = starwars, aes(x = height)) + geom_histogram(fill = "green") + labs(x = "Height in cm", y = "Count")
+
+ggplot(data = starwars, aes(x = height, y = mass)) + geom_point(color = "blue")
+
+```
